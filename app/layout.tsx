@@ -12,7 +12,7 @@ const mont = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "ft-nt",
+  title: "SpendSmart",
   description: "Finance Tracker",
 };
 
