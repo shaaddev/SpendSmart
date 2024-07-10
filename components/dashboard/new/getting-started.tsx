@@ -5,7 +5,7 @@ export function GettingStarted() {
   return(
     <>
       <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">Getting Started</h1>
-      <BudgetsForm />
+      <SavingsGoalsForm />
     </>
   )
 }

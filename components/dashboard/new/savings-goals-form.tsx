@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { CardForm } from './card-form'
 import { input_style } from './getting-started'
+import { createSavingsGoal } from './actions'
 
 export function SavingsGoalsForm() {
   const { register } = useForm()
@@ -16,10 +17,13 @@ export function SavingsGoalsForm() {
       <form onSubmit={ async (e) => {
         e.preventDefault()
 
+        const formData = new FormData(e.currentTarget)
+        await createSavingsGoal(formData)
       }} className='space-y-6'>
 
         <Input 
           id='target_amount'
+          type="number"
           placeholder='Target Amount'
           className={input_style}
           {...register('target_amount', {required: true})}
@@ -27,6 +31,7 @@ export function SavingsGoalsForm() {
         
         <Input 
           id='current_amount'
+          type="number"
           placeholder='Current Amount'
           className={input_style}
           {...register('current_amount', {required: true})}

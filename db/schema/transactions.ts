@@ -1,13 +1,13 @@
-import { pgTable, timestamp, text, decimal, serial, integer } from 'drizzle-orm/pg-core';
+import { pgTable, timestamp, text, numeric, serial } from 'drizzle-orm/pg-core';
 import { users } from './user'
 
 export const transactions = pgTable('transactions', {
   id: serial('id').primaryKey().notNull(),
-  user_id: integer('user_id')
+  user_id: text('user_id')
     .notNull()
-    .references(() => users.id, { onDelete: 'cascade' }),
+    .references(() => users.user_id, { onDelete: 'cascade' }),
   type: text('type'),
-  amount: decimal('amount').notNull(),
+  amount: numeric('amount', { precision: 10, scale: 2}).notNull(),
   category: text('category').notNull(),
   date: timestamp('date').notNull(),
   description: text('description'),

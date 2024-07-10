@@ -19,6 +19,7 @@ export function BudgetsForm() {
 
         <Input 
           id="amount"
+          type="number"
           placeholder='Amount'
           className={input_style}
           {...register('amount', {required: true})}
