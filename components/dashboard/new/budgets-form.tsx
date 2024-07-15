@@ -5,8 +5,9 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { CardForm } from './card-form'
 import { input_style } from './getting-started'
+import { createBudget } from './actions'
 
-export function BudgetsForm() {
+export function BudgetsForm({ onNext }: {onNext: () => void}) {
   const { register } = useForm();
   
   return  (
@@ -14,7 +15,10 @@ export function BudgetsForm() {
       <h1 className='text-center text-lg font-semibold mb-2'>Start your new Budget</h1>
       <form onSubmit={ async (e) => {
         e.preventDefault()
-
+        
+        const formData = new FormData(e.currentTarget)
+        await createBudget(formData)
+        onNext()
       }} className='space-y-6'>
 
         <Input 
@@ -53,7 +57,7 @@ export function BudgetsForm() {
         <Button type="submit"
           className='bg-sky-900 dark:bg-black dark:text-white rounded-xl border'
         >
-          Create
+          Next
         </Button>
       </form>
     </CardForm>

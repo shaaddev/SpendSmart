@@ -1,41 +1,18 @@
 "use server"
 import { db } from "@/db"
-import { users } from "@/db/schema/user"
 import { budgets } from "@/db/schema/budgets"
 import { savings_goals } from "@/db/schema/savings_goals"
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"
 import { redirect } from "next/navigation"
 import { revalidatePath } from "next/cache"
-import { eq } from "drizzle-orm"
 import { BudgetsFormData, SavingsGoalFormData } from "@/lib/type"
 
-export async function storeUser(){
-  const { getUser } = getKindeServerSession()
-  const user = await getUser();
-
-  if (user){
-    await db
-      .insert(users)
-      .values({
-        given_name: user?.given_name as string,
-        email: user?.email as string,
-        user_id: user?.id,
-      })
-  }
-
-  revalidatePath('/dashboard')
-}
 
 export async function createBudget(formData: FormData){
   // store user if signed in
   const { getUser } = getKindeServerSession()
   const user = await getUser();
 
-  const isUser = await db.select().from(users).where(eq(users.user_id, user?.id as string)).limit(1)
-
-  if (!isUser){
-    await storeUser()
-  }
 
   // create budget
   const amount = formData.get('amount') as string
@@ -63,7 +40,7 @@ export async function createBudget(formData: FormData){
     }
   }
 
-  revalidatePath('/dashboard')
+  // revalidatePath('/dashboard')
 }
 
 export async function createSavingsGoal(formData: FormData){
@@ -75,19 +52,10 @@ export async function createSavingsGoal(formData: FormData){
   const { getUser } = getKindeServerSession()
   const user = await getUser();
 
-  const isUser = await db.select().from(users).where(eq(users.user_id, user?.id as string)).limit(1)
-
-
-  if (!isUser){
-    await storeUser()
-  }
-
   const user_id = user?.id as string
 
-  console.log(user_id, target_amount, current_amount, target_date)
-
   try {
-    const sv_goal: SavingsGoalFormData = { user_id,target_amount, current_amount, target_date }
+    const sv_goal: SavingsGoalFormData = { user_id, target_amount, current_amount, target_date }
 
     await db.insert(savings_goals).values(sv_goal)
       
