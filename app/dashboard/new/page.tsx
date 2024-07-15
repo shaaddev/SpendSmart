@@ -1,28 +1,25 @@
 'use client'
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs"
-import { LoginLink } from "@kinde-oss/kinde-auth-nextjs"
-import { redirect } from "next/navigation"
 import { GettingStarted } from "@/components/dashboard/new/getting-started"
-import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation"
+import { Loading } from "@/components/dashboard/loading"
 
 export default function DashboardNew() {
   const { isAuthenticated, isLoading } = useKindeBrowserClient()
+  const router = useRouter()
 
-  if (isLoading) return <p>Loading...</p>
+  if (isLoading) return <Loading />
+
+  if (!isAuthenticated) {
+    router.push('/api/auth/login')
+  }
+
   
-  return (
+  return isAuthenticated ? (
     <main className="flex flex-col items-center justify-center p-10 lg:p-24">
-      {isAuthenticated ? (
         <GettingStarted />
-      ): (
-        <div>
-          You have to 
-          <Button className="bg-sky-900 dark:bg-black dark:text-white rounded-xl border">
-            <LoginLink>Login</LoginLink>
-          </Button> 
-          to see this page
-        </div>
-      )}
     </main>
+  ) : (
+    <Loading />
   )
 }

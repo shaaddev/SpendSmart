@@ -13,7 +13,7 @@ export default async function Dashboard(){
   return(
     <main className="flex items-center justify-center p-10 lg:p-24">
       <_Dashboard />
-      <div className="absolute bottom-5 right-5">
+      <div className="fixed bottom-5 right-5">
         <CreateNewBtn />
       </div>
     </main>

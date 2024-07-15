@@ -11,3 +11,8 @@ export interface SavingsGoalFormData {
   current_amount: string
   target_date: Date
 }
+
+export interface DashboardDetailsProps {
+  title: string
+  component: JSX.Element
+}
