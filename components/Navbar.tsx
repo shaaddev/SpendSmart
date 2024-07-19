@@ -31,7 +31,7 @@ export async function Navbar() {
                 </li>
               ))}
               <li>
-                <LogoutLink postLogoutRedirectURL='/success-logout' className='hover:opacity-70'>
+                <LogoutLink className='hover:opacity-70'>
                   Logout
                 </LogoutLink>
               </li>
