@@ -10,7 +10,7 @@ export async function _Table(){
   const { getUser } = getKindeServerSession()
   const user = await getUser();
 
-  let transaction = await db.select().from(transactions).where(eq(transactions.user_id, user?.id as string)).orderBy(desc(transactions.id))
+  let transaction: any = await db.select().from(transactions).where(eq(transactions.user_id, user?.id as string)).orderBy(desc(transactions.id))
 
   return(
     <Table>
