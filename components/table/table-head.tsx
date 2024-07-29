@@ -4,10 +4,9 @@ export function TableH(){
   return(
     <TableHeader>
       <TableRow>
-        <TableHead>Type</TableHead>
+        <TableHead>Description</TableHead>
         <TableHead>Amount</TableHead>
         <TableHead>Category</TableHead>
-        <TableHead>Description</TableHead>
         <TableHead>Date</TableHead>
       </TableRow>
     </TableHeader>

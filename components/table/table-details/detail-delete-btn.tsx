@@ -9,7 +9,7 @@ export function Delete({id}: {id: number}){
     const confirmed = confirm('Are you sure you want to delete this transaction?');
 
     if (confirmed){
-      const res = await fetch(`/api/trasnactions?id=${id}`, {
+      const res = await fetch(`/api/transactions?id=${id}`, {
         method: 'DELETE',
       });
 

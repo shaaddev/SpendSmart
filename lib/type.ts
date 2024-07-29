@@ -25,9 +25,9 @@ export interface AboutFeaturesProps {
 
 export interface TransactionsProps {
   id?: string
-  type: string
-  amount: number
+  user_id?: string
+  amount: string
   category: string
   description: string
-  date: string
+  date: Date | string
 }

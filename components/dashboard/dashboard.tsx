@@ -37,13 +37,13 @@ export function _Dashboard() {
     <div className="flex flex-col items-center justify-center w-full">
       <div className="md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 w-full mb-7">
         {dashboard_details.map((d: DashboardDetailsProps, index: number) => (
-          <CardDashboard key={index}>
+          <CardDashboard key={index} className="p-2 lg:p-5">
             <p className={dashboard_title_style}>{d.title}</p>
             {d.component}
           </CardDashboard>
         ))}
       </div>
-      <CardDashboard>
+      <CardDashboard className="p-0 m-0">
         <_Table/>
       </CardDashboard>
     </div>

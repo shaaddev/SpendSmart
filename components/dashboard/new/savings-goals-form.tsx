@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { CardForm } from './card-form'
-import { input_style } from './getting-started'
+import { btn_style, input_style } from './getting-started'
 import { createSavingsGoal } from './actions'
 
 export function SavingsGoalsForm() {
@@ -51,7 +51,7 @@ export function SavingsGoalsForm() {
         </div>
 
         <Button type="submit"
-          className='bg-sky-900 dark:bg-black dark:text-white rounded-xl border'
+          className={btn_style}
         >
           Submit
         </Button>

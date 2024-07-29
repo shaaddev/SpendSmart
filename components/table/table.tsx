@@ -5,6 +5,7 @@ import { transactions } from "@/db/schema/transactions";
 import { db } from "@/db";
 import { desc, eq } from "drizzle-orm";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { CreateNewTransactionBtn } from "../dashboard/create-new-btn";
 
 export async function _Table(){
   const { getUser } = getKindeServerSession()
@@ -18,6 +19,8 @@ export async function _Table(){
       <TableBody>
         <TableList data={user ? transaction : []} />
       </TableBody>
+
+      <CreateNewTransactionBtn />
     </Table>
   )
 }

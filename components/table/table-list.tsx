@@ -1,17 +1,19 @@
 import { TableRow, TableCell } from '@/components/ui/table';
 import { TransactionsProps } from '@/lib/type';
+import { Detail } from './table-details/detail';
 
 export function TableList({ data }: { data: TransactionsProps[] }) {
   return(
     <>
       {data.map((m, index) => (
-        <TableRow className='hover:text-blue-500 hover:cursor-pointer' key={index}>
-          <TableCell>{m.type}</TableCell>
-          <TableCell>{m.amount}</TableCell>
-          <TableCell>{m.category}</TableCell>
-          <TableCell>{m.description}</TableCell>
-          <TableCell>{m.date}</TableCell>
-        </TableRow>
+        <Detail data={m} key={index}>
+          <TableRow className='hover:text-blue-500 hover:cursor-pointer'>
+            <TableCell>{m.description}</TableCell>
+            <TableCell>$ {m.amount}</TableCell>
+            <TableCell>{m.category}</TableCell>
+            <TableCell>{m.date?.toString()}</TableCell>
+          </TableRow>
+        </Detail>
       ))}
     </>
   )
