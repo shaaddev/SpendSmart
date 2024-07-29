@@ -3,6 +3,7 @@ import { TotalBalance } from "./total-balance"
 import { TotalExpenses } from "./total-expenses"
 import { TotalIncome } from "./total-income"
 import { DashboardDetailsProps } from "@/lib/type"
+import { _Table } from "../table/table"
 
 const dashboard_details: DashboardDetailsProps[] = [
   {
@@ -33,13 +34,18 @@ const dashboard_details: DashboardDetailsProps[] = [
 
 export function _Dashboard() {
   return(
-    <div className="flex flex-col items-center justify-center md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-      {dashboard_details.map((d: DashboardDetailsProps, index: number) => (
-        <CardDashboard key={index}>
-          <p className={dashboard_title_style}>{d.title}</p>
-          {d.component}
-        </CardDashboard>
-      ))}
+    <div className="flex flex-col items-center justify-center w-full">
+      <div className="md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 w-full mb-7">
+        {dashboard_details.map((d: DashboardDetailsProps, index: number) => (
+          <CardDashboard key={index}>
+            <p className={dashboard_title_style}>{d.title}</p>
+            {d.component}
+          </CardDashboard>
+        ))}
+      </div>
+      <CardDashboard>
+        <_Table/>
+      </CardDashboard>
     </div>
   )
 }

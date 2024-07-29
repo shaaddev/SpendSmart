@@ -16,3 +16,18 @@ export interface DashboardDetailsProps {
   title: string
   component: JSX.Element
 }
+
+export interface AboutFeaturesProps {
+  icon: JSX.Element
+  title: string
+  description: string
+}
+
+export interface TransactionsProps {
+  id?: string
+  type: string
+  amount: number
+  category: string
+  description: string
+  date: string
+}

@@ -1,11 +1,5 @@
 import { BorderDollarSign, Wallet, Report } from "./logos"
 
-export interface AboutFeaturesProps {
-  icon: JSX.Element
-  title: string
-  description: string
-}
-
 export const AboutFeatures = [
   {
     'icon': <Wallet className="inline mr-2 w-5 h-5 text-red-500"/>,
