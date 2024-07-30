@@ -31,3 +31,8 @@ export interface TransactionsProps {
   description: string
   date: Date | string
 }
+
+export interface TransformedData {
+  id: string,
+  value: number
+}

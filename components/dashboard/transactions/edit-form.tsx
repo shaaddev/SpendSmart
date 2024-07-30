@@ -9,6 +9,13 @@ import { useToast } from "@/components/ui/use-toast"
 import { Button } from "@/components/ui/button"
 import { btn_style, input_style } from "../new/getting-started"
 import { CardForm } from "../new/card-form"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 export function EditForm({
   id, description, amount, category, date
@@ -61,11 +68,19 @@ export function EditForm({
 
         <div>
           <Label htmlFor="new_category">Category</Label>
-          <Input 
-            id="new_category"
-            className={input_style}
-            {...register('new_category', {required: true})}
-          />
+          <Select defaultValue={category} {...register('new_category', {required: true})}>
+            <SelectTrigger className={input_style}>
+              <SelectValue placeholder="Select a category" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="Entertainment">Entertainment</SelectItem>
+              <SelectItem value="Groceries">Groceries</SelectItem>
+              <SelectItem value="Health/Medical">Health/Medical</SelectItem>
+              <SelectItem value="Food">Food</SelectItem>
+              <SelectItem value="Personal">Personal</SelectItem>
+              <SelectItem value="Other">Other</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
 
         <div>

@@ -4,6 +4,8 @@ import { TotalExpenses } from "./total-expenses"
 import { TotalIncome } from "./total-income"
 import { DashboardDetailsProps } from "@/lib/type"
 import { _Table } from "../table/table"
+import { SpendingChart } from "./charts/spending-chart"
+import { SavingsTrendChart } from "./charts/savings-trend-chart"
 
 const dashboard_details: DashboardDetailsProps[] = [
   {
@@ -20,11 +22,11 @@ const dashboard_details: DashboardDetailsProps[] = [
   },
   {
     title: "Spending Trends",
-    component: <></>
+    component: <SpendingChart/>
   },
   {
     title: "Savings Trend",
-    component: <></>
+    component: <SavingsTrendChart/>
   },
   {
     title: "Upcoming Bills",
@@ -43,7 +45,9 @@ export function _Dashboard() {
           </CardDashboard>
         ))}
       </div>
-      <CardDashboard className="p-0 m-0">
+
+      <h1 className="text-2xl md:text-2xl font-bold mb-5">Recent Transactions</h1>
+      <CardDashboard className="p-0 m-0 max-h-96 overflow-x-hidden">
         <_Table/>
       </CardDashboard>
     </div>

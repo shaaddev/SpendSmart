@@ -19,15 +19,15 @@ export async function DetailInfo({data}: {data: TransactionsProps}) {
             {data.description} 
           </DialogDescription>
         </DialogHeader>
-        <div className='flex flex-col items-start justify-center text-black dark:text-slate-500'>
+        <div className='flex flex-col items-start justify-center text-black dark:text-slate-300'>
           <div>
             <p>{data.category}</p>
             <p>{data.date?.toString()}</p>
           </div>
           {user ? (
             <div className='w-full pt-5 flex justify-between '>
-              <Link href={`transactions/edit/${data.id}`}>
-                <Button type='button' className='dark:bg-slate-500 dark:text-black'>Edit</Button>
+              <Link href={`transaction/edit/${data.id}`}>
+                <Button type='button' className='dark:bg-slate-400 dark:text-black'>Edit</Button>
               </Link>
               <Delete id={parseInt(data.id!)}/>
             </div>

@@ -19,7 +19,7 @@ export async function Navbar() {
   const user = await getUser();
 
   return (
-    <nav className='sticky flex flex-col max-w-full h-max z-10 top-0 inset-x-0 px-5 py-4 text-base font-medium tracking-tight bg-white/30 dark:bg-black/30 text-neutral-900 dark:text-white backdrop-blur border-b border-b-black/10'>
+    <nav className='sticky flex flex-col max-w-full h-max z-10 top-0 inset-x-0 px-5 py-4 text-base font-medium tracking-tight bg-white/30 dark:bg-black/30 text-neutral-900 dark:text-white backdrop-blur border-b border-b-black/10 dark:border-b-white/10'>
       <div className='flex flex-row items-center justify-between px-5'>
         <div><DollarSign className='w-6 h-6 inline align-middle'/> {user ? (<div className='inline align-middle'>Welcome {user.given_name}!</div>) : null}</div>
         <ul className='hidden lg:flex flex-row gap-6 justify-end'>

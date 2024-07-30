@@ -17,7 +17,7 @@ export const createTransactionAction = async (formData: FormData) => {
   const description = formData.get('description') as string
   const amount = formData.get('amount') as string
   const category = formData.get('category') as string
-  const date = new Date(formData.get('date') as string)
+  const date = formData.get('date') as string
   const user_id = await get_user_id()
 
   if (!description || !amount || !category || !date){
@@ -42,7 +42,7 @@ export const updateTransactionAction = async (formData: FormData, id: string) =>
   const new_description = formData.get('new_description') as string
   const new_amount = formData.get('new_amount') as string
   const new_category = formData.get('new_category') as string
-  const new_date = new Date(formData.get('new_date') as string)
+  const new_date = formData.get('new_date') as string
 
   if (!new_description || !new_amount || !new_category || !new_date){
     return{
@@ -51,9 +51,17 @@ export const updateTransactionAction = async (formData: FormData, id: string) =>
   }
 
   try {
-    const new_taction: any = { new_description, new_amount, new_category, new_date } 
+    // bug: check later for date (new Date)
+    // const new_taction: any = { new_description, new_amount, new_category, new_date } 
 
-    await db.update(transactions).set(new_taction).where(eq(transactions.id, parseInt(id)))
+    await db.update(transactions)
+      .set({
+        description: new_description,
+        amount: new_amount,
+        category: new_category,
+        date: new_date
+      })
+      .where(eq(transactions.id, parseInt(id)))
 
   } catch (error) {
     return console.log('Error', error)

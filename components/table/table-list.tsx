@@ -7,7 +7,7 @@ export function TableList({ data }: { data: TransactionsProps[] }) {
     <>
       {data.map((m, index) => (
         <Detail data={m} key={index}>
-          <TableRow className='hover:text-blue-500 hover:cursor-pointer'>
+          <TableRow className='hover:text-blue-500 hover:cursor-pointer border-b-black/10 dark:border-b-white/10'>
             <TableCell>{m.description}</TableCell>
             <TableCell>$ {m.amount}</TableCell>
             <TableCell>{m.category}</TableCell>
