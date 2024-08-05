@@ -12,7 +12,7 @@ export async function TotalIncome() {
 
   return(
     <>
-      <p className="text-xl font-semibold">${sv_income[0].target_amount}</p>
+      <p className="text-xl font-semibold">${sv_income[0].current_amount}</p>
     </>
   )
 }

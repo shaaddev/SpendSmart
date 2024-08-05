@@ -6,6 +6,7 @@ import { DashboardDetailsProps } from "@/lib/type"
 import { _Table } from "../table/table"
 import { SpendingChart } from "./charts/spending-chart"
 import { SavingsTrendChart } from "./charts/savings-trend-chart"
+import { UpcomingBills } from "./upcoming-bills"
 
 const dashboard_details: DashboardDetailsProps[] = [
   {
@@ -30,7 +31,7 @@ const dashboard_details: DashboardDetailsProps[] = [
   },
   {
     title: "Upcoming Bills",
-    component: <></>
+    component: <UpcomingBills />
   }
 ]
 

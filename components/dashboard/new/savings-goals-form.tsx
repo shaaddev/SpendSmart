@@ -24,7 +24,7 @@ export function SavingsGoalsForm() {
         <Input 
           id='target_amount'
           type="number"
-          placeholder='Target Amount'
+          placeholder='Expenses'
           className={input_style}
           {...register('target_amount', {required: true})}
         />
@@ -32,7 +32,7 @@ export function SavingsGoalsForm() {
         <Input 
           id='current_amount'
           type="number"
-          placeholder='Current Amount'
+          placeholder='Income'
           className={input_style}
           {...register('current_amount', {required: true})}
         />

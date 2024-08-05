@@ -12,6 +12,11 @@ export interface SavingsGoalFormData {
   target_date: Date
 }
 
+export interface ReminderFormData {
+  user_id: string
+  description: string
+}
+
 export interface DashboardDetailsProps {
   title: string
   component: JSX.Element

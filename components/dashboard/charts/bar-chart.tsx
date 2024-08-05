@@ -6,11 +6,31 @@ export function BarChart({ data }: any) {
     <div className="aspect-square">
       <ResponsiveBar 
         data={data}
-        keys={['count']}
-        indexBy='name'
+        keys={['value']}
+        indexBy='id'
         margin={{ top: 0, right: 0, bottom: 40, left: 40}}
         padding={0.3}
-        colors={["#2563eb"]}
+        colors={{ scheme: 'pastel2' }}
+        defs={[
+          {
+            id: 'dots',
+            type:'patternDots',
+            background: 'inherit',
+            color: 'rgba(255, 255, 255, 0.3)',
+            size: 4,
+            padding: 1,
+            stagger: true
+          },
+          {
+            id: 'lines',
+            type: 'patternLines',
+            background: 'inherit',
+            color: 'rgba(255, 255, 255, 0.3)',
+            rotation: -45,
+            lineWidth: 6,
+            spacing: 10
+          }
+        ]}
         axisBottom={{
           tickSize: 0,
           tickPadding: 16,
@@ -30,7 +50,8 @@ export function BarChart({ data }: any) {
               fontSize: "12px",
               textTransform: "capitalize",
               borderRadius: "6px",
-              color: 'black'
+              color: 'white',
+              backgroundColor: 'black'
             },
           },
           grid: {

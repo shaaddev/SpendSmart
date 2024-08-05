@@ -24,7 +24,7 @@ export function BudgetsForm({ onNext }: {onNext: () => void}) {
         <Input 
           id="amount"
           type="number"
-          placeholder='Amount'
+          placeholder='Balance'
           className={input_style}
           {...register('amount', {required: true})}
         />

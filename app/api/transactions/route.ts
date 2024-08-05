@@ -10,5 +10,5 @@ export async function DELETE(req: any){
     .where(eq(transactions.id, parseInt(id)));
 
   
-  return NextResponse.json({message: 'post deleted'}, {status: 201});
+  return NextResponse.json({message: 'transaction deleted'}, {status: 201});
 }

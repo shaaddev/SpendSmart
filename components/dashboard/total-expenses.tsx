@@ -12,7 +12,7 @@ export async function TotalExpenses() {
 
   return(
     <>
-      <p className="text-xl font-semibold">${sv_goal[0].current_amount}</p>
+      <p className="text-xl font-semibold">${sv_goal[0].target_amount}</p>
     </>
   )
 }
