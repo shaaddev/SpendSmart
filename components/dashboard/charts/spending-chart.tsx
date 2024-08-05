@@ -3,15 +3,6 @@ import { DoughnutChart } from "./doughnut-chart";
 import { db } from "@/db";
 import { TransformedData } from "@/lib/type";
 
-const data = [
-  {id: 'Entertainment', value: 10},
-  {id: 'Groceries', value: 20},
-  {id: 'Health/Medical', value: 30},
-  {id: 'Food', value: 40},
-  {id: 'Personal', value: 50},
-  {id: 'Other', value: 60},
-];
-
 export async function SpendingChart(){
   try {
     const get_transactions = await db.select().from(transactions).execute()
