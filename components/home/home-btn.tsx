@@ -9,11 +9,11 @@ export function HomeBtn() {
           Sign Up
         </Button>
       </Link>
-      <Link href="/">
+      {/* <Link href="/">
         <Button variant="outline" className="border-sky-900">
           Download the App
         </Button>
-      </Link>
+      </Link> */}
     </div>
   )
 }
