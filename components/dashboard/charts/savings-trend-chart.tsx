@@ -14,13 +14,20 @@ export async function SavingsTrendChart(){
 
 
   const balance = await db.select().from(budgets).where(eq(budgets.user_id, user?.id as string)).orderBy(desc(budgets.id))
-  const get_balance = balance[0].amount
+  const get_balance = parseFloat(balance[0].amount)
 
   const transaction = await db.select().from(transactions).where(eq(transactions.user_id, user?.id as string))
-  const total_transaction = transaction.length
+  let total_transaction = 0;
+  for (let i = 0; i < transaction.length; i++) {
+    total_transaction += parseFloat(transaction[i].amount)
+  }
+  
+  const updated_transaction = get_balance - total_transaction
+
+  console.log(updated_transaction)
 
   try {
-    const s_t = [{ id: total_transaction, value: get_balance}]    
+    const s_t = [{ id: get_balance, value: updated_transaction}]    
 
     return <BarChart data={s_t} />
   } catch (error) {
