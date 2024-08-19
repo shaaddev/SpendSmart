@@ -24,10 +24,8 @@ export async function SavingsTrendChart(){
   
   const updated_transaction = get_balance - total_transaction
 
-  console.log(updated_transaction)
-
   try {
-    const s_t = [{ id: get_balance, value: updated_transaction}]    
+    const s_t = [{ id: 'Savings', value: updated_transaction}]    
 
     return <BarChart data={s_t} />
   } catch (error) {
